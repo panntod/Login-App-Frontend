@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./components/Login";
 import Users from "./pages/Users";
@@ -11,7 +11,7 @@ import EditProduct from "./pages/EditProduct";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
