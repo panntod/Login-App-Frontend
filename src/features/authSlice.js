@@ -18,7 +18,7 @@ export const LoginUser = createAsyncThunk("user/LoginUser", async(user, thunkAPI
         return response.data;
     } catch (error) {
         if(error.response){
-            const message = error.response.data.msg;
+            const message = error.response.data.message;
             return thunkAPI.rejectWithValue(message);
         }
     }
@@ -30,7 +30,7 @@ export const getMe = createAsyncThunk("user/getMe", async(_, thunkAPI) => {
         return response.data;
     } catch (error) {
         if(error.response){
-            const message = error.response.data.msg;
+            const message = error.response.data.message;
             return thunkAPI.rejectWithValue(message);
         }
     }
