@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, reset } from "../features/authSlice";
+import { LoginUser, LogOut, reset } from "../features/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,14 +24,20 @@ const Login = () => {
     dispatch(LoginUser({ email, password }));
   };
 
+  const handleLogout = () => {
+    dispatch(LogOut());
+  };
+
   return (
     <section className="hero is-fullheight is-fullwidth">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-4">
+                {isError && (
+                  <div className="notification is-danger">{message}</div>
+                )}
               <form onSubmit={Auth} className="box">
-                {isError && <p className="has-text-centered">{message}</p>}
                 <h1 className="title is-2">Sign In</h1>
                 <div className="field">
                   <label className="label">Email</label>
@@ -41,7 +47,7 @@ const Login = () => {
                       className="input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Email"
+                      placeholder="Enter Your Email"
                     />
                   </div>
                 </div>
@@ -53,7 +59,7 @@ const Login = () => {
                       className="input"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder="******"
+                      placeholder="Enter Your Password"
                     />
                   </div>
                 </div>
@@ -66,6 +72,14 @@ const Login = () => {
                   </button>
                 </div>
               </form>
+              {user && (
+                <button
+                  onClick={handleLogout}
+                  className="button is-danger is-fullwidth mt-2"
+                >
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         </div>
