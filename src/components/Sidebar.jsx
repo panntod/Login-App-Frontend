@@ -47,7 +47,10 @@ const Sidebar = () => {
         <p className="menu-label">Settings</p>
         <ul className="menu-list">
           <li>
-            <button onClick={logout} className="button is-white">
+            <button
+              onClick={logout}
+              className="button is-white is-fullwidth is-justify-content-flex-start"
+            >
               <IoLogOut /> Logout
             </button>
           </li>
