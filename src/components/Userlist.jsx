@@ -26,7 +26,7 @@ const Userlist = () => {
       <Link to="/users/add" className="button is-primary mb-2">
         Add New
       </Link>
-      <table className="table is-striped is-fullwidth">
+      <table className="table is-striped is-fullwidth is-hoverable">
         <thead>
           <tr>
             <th>No</th>
@@ -52,7 +52,7 @@ const Userlist = () => {
                 </Link>
                 <button
                   onClick={() => deleteUser(user.uuid)}
-                  className="button is-small is-danger"
+                  className="button is-small is-danger ml-0 ml-mobile-2"
                 >
                   Delete
                 </button>
