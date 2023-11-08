@@ -45,7 +45,7 @@ const FormAddUser = () => {
                     className="input"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Name"
+                    placeholder="Enter Name"
                   />
                 </div>
               </div>
@@ -57,7 +57,7 @@ const FormAddUser = () => {
                     className="input"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
+                    placeholder="Enter Email"
                   />
                 </div>
               </div>
@@ -69,7 +69,7 @@ const FormAddUser = () => {
                     className="input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="******"
+                    placeholder="Enter Password"
                   />
                 </div>
               </div>
@@ -81,7 +81,7 @@ const FormAddUser = () => {
                     className="input"
                     value={confPassword}
                     onChange={(e) => setConfPassword(e.target.value)}
-                    placeholder="******"
+                    placeholder="Confirm Password"
                   />
                 </div>
               </div>
