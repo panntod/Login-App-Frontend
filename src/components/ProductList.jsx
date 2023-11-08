@@ -26,43 +26,47 @@ const ProductList = () => {
       <Link to="/products/add" className="button is-primary mb-2">
         Add New
       </Link>
-      <table className="table is-striped is-fullwidth">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Created By</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product, index) => (
-            <tr key={product.uuid}>
-              <td>{index + 1}</td>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.users_login.name}</td>
-              <td>{product.users_login.email}</td>
-              <td>
-                <Link
-                  to={`/products/edit/${product.uuid}`}
-                  className="button is-small is-info"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => deleteProduct(product.uuid)}
-                  className="button is-small is-danger"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="table-container">
+        <table className="table is-striped is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Created By</th>
+              <th>Email</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {products.map((product, index) => (
+              <tr key={product.uuid}>
+                <td>{index + 1}</td>
+                <td>{product.name}</td>
+                <td>${product.price}</td>
+                <td>{product.users_login.name}</td>
+                <td>{product.users_login.email}</td>
+                <td>
+                  <div className="buttons">
+                    <Link
+                      to={`/products/edit/${product.uuid}`}
+                      className="button is-small is-info"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => deleteProduct(product.uuid)}
+                      className="button is-small is-danger ml-0 ml-mobile-2"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
